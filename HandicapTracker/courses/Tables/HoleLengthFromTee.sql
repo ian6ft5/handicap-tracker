@@ -1,0 +1,27 @@
+CREATE TABLE [courses].[HoleLengthFromTee](
+	[TeeID] [INT] NOT NULL,
+	[HoleID] [INT] NOT NULL,
+	[Yardage] [SMALLINT] NOT NULL,
+ CONSTRAINT [PK_TeeID_HoleID] PRIMARY KEY CLUSTERED 
+(
+	[TeeID] ASC,
+	[HoleID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [courses].[HoleLengthFromTee]  WITH CHECK ADD FOREIGN KEY([HoleID])
+REFERENCES [courses].[Hole] ([HoleID])
+GO
+
+ALTER TABLE [courses].[HoleLengthFromTee]  WITH CHECK ADD FOREIGN KEY([TeeID])
+REFERENCES [courses].[Tee] ([TeeID])
+GO
+
+ALTER TABLE [courses].[HoleLengthFromTee]  WITH CHECK ADD  CONSTRAINT [CHK_ValidYardage] CHECK  (([Yardage]>(0)))
+GO
+
+ALTER TABLE [courses].[HoleLengthFromTee] CHECK CONSTRAINT [CHK_ValidYardage]
+GO
+
+
