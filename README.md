@@ -14,3 +14,6 @@ Facilitates adding new course information. Bare boned and no nonsense.
 
 Phase 5: User UI
 For inputting score information. Frillier.
+
+3 Oct 2024
+My working experience has been entirely in an old, unnormalized database with mountains of technical debt. As a result, the amount of sanitization and handling of abnormal data that needs to be done, and the number of errors that occur when something isn't accounted for, is inordinate. My intention with this project is to reinforce that a well defined and developed database provides faster performance and allows for easier application development on top of it.
